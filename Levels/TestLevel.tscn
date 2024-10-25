@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Temp/Ground.png" type="Texture2D" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Cobra.tscn" type="PackedScene" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PackedVector2Array( 8, 8, 0, 8, 0.0062542, 0, 8, 0.00625515 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "Ground.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 4
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+collision_layer = 4
+collision_mask = 3
+format = 1
+tile_data = PackedInt32Array( -1376256, 0, 0, -1376255, 0, 0, -1376254, 0, 0, -1376253, 0, 0, -1376252, 0, 0, -1376251, 0, 0, -1376250, 0, 0, -1376249, 0, 0, -1376248, 0, 0, -1376247, 0, 0, -1245143, 0, 0, -1179607, 0, 0, -1114071, 0, 0, -1048571, 0, 0, -1048570, 0, 0, -1048569, 0, 0, -1048568, 0, 0, -1048567, 0, 0, -1048566, 0, 0, -1048565, 0, 0, -1048564, 0, 0, -1048563, 0, 0, -1048562, 0, 0, -1048561, 0, 0, -1048560, 0, 0, -1048559, 0, 0, -1048535, 0, 0, -982999, 0, 0, -917463, 0, 0, -851927, 0, 0, -786391, 0, 0, -720855, 0, 0, -655319, 0, 0, -589783, 0, 0, -524274, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524247, 0, 0, -458711, 0, 0, -393175, 0, 0, -327660, 0, 0, -327659, 0, 0, -327658, 0, 0, -327657, 0, 0, -327656, 0, 0, -327655, 0, 0, -327639, 0, 0, -262103, 0, 0, -196567, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -131052, 0, 0, -131051, 0, 0, -131031, 0, 0, -65495, 0, 0, 65530, 0, 0, 41, 0, 0, 131066, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65577, 0, 0, 196602, 0, 0, 131113, 0, 0, 262138, 0, 0, 196649, 0, 0, 327674, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262185, 0, 0, 393210, 0, 0, 327721, 0, 0, 458746, 0, 0, 393257, 0, 0, 524282, 0, 0, 524283, 0, 0, 524284, 0, 0, 524285, 0, 0, 524286, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 458781, 0, 0, 458782, 0, 0, 458783, 0, 0, 458784, 0, 0, 458785, 0, 0, 458786, 0, 0, 458787, 0, 0, 458788, 0, 0, 458789, 0, 0, 458790, 0, 0, 458791, 0, 0, 458792, 0, 0, 458793, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 156, 52 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+limit_left = -48
+limit_bottom = 64
+editor_draw_limits = true
+
+[node name="Cobra" parent="." instance=ExtResource( 4 )]
+position = Vector2( 216, 48 )

@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemies/Vulture.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Enemies/Vulture.png" type="Texture2D" id=2]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ PackedVector2Array( -3, 1, -3, -5, 3, -5, 3, -2, 6, -1, 6, 3, 4, 8, -3, 8 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talons:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 8 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Vulture"
+length = 1.4
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PackedVector2Array( -3, 1, -3, -5, 3, -5, 3, -2, 6, -1, 6, 3, 4, 8, -3, 8 ), PackedVector2Array( -3, 1, -3, -5, -2, -6, 2, -6, 3, -5, 3, -2, 6, -1, 6, 3, 4, 7, -3, 7 ), PackedVector2Array( -3, 1, -3, -6, -2, -7, 2, -7, 3, -6, 3, -5, 3, -5, 6, -2, 6, 2, 4, 6, -3, 6 ), PackedVector2Array( -3, 1, -3, -8, -2, -9, 2, -9, 3, -8, 3, -6, 4, -6, 6, -4, 6, 0, 4, 4, -3, 4 ), PackedVector2Array( -3, 1, -3, -7, -2, -8, 2, -8, 3, -7, 3, -6, 4, -5, 6, -4, 6, 0, 4, 5, -3, 5 ), PackedVector2Array( -3, 1, -3, -6, -2, -7, 2, -7, 3, -6, 4, -4, 6, -3, 6, 1, 4, 6, -3, 6 ), PackedVector2Array( -3, 1, -3, -5, -2, -6, 2, -6, 3, -5, 4, -3, 6, -2, 6, 2, 5, 2, 4, 7, -3, 7 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Talons:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 8 ), Vector2( 0, 7 ), Vector2( 0, 6 ), Vector2( 0, 4 ), Vector2( 0, 5 ), Vector2( 0, 6 ), Vector2( 0, 7 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 34.5 )
+
+[node name="Vulture" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/Vulture = SubResource( 2 )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2( -1, -3 )
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array( -3, 1, -3, -5, 3, -5, 3, -2, 6, -1, 6, 3, 4, 8, -3, 8 )
+
+[node name="DetectPlayer" type="Area2D" parent="." groups=["Enemies"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
+position = Vector2( 0, 29.5 )
+shape = SubResource( 1 )
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Talons" type="Marker2D" parent="."]
+position = Vector2( 0, 8 )

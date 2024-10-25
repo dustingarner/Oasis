@@ -1,0 +1,175 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Assets/Player/Player Idle-Sheet.png" type="Texture2D" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/Fsm.gd" type="Script" id=3]
+[ext_resource path="res://Player/Idle.gd" type="Script" id=4]
+[ext_resource path="res://Player/Sprint.gd" type="Script" id=5]
+[ext_resource path="res://Player/Walk.gd" type="Script" id=6]
+[ext_resource path="res://Player/Fall.gd" type="Script" id=7]
+[ext_resource path="res://Player/Jump.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Player/Player Walk Right-Sheet.png" type="Texture2D" id=9]
+[ext_resource path="res://Player/Plant.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Player/Jumping-Sheet.png" type="Texture2D" id=11]
+[ext_resource path="res://Player/Damage.gd" type="Script" id=12]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 14, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 28, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 42, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 11 )
+region = Rect2( 154, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 11 )
+region = Rect2( 168, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 9 )
+region = Rect2( 14, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 11 )
+region = Rect2( 84, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 11 )
+region = Rect2( 98, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 11 )
+region = Rect2( 112, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 11 )
+region = Rect2( 126, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 11 )
+region = Rect2( 14, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 11 )
+region = Rect2( 28, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 11 )
+region = Rect2( 42, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 11 )
+region = Rect2( 56, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 11 )
+region = Rect2( 70, 0, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 11 )
+region = Rect2( 84, 0, 14, 14 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 14 ), SubResource( 14 ), SubResource( 14 ), SubResource( 13 ), SubResource( 13 ) ],
+"loop": false,
+"name": "land",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": false,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": false,
+"name": "jump",
+"speed": 5.0
+} ]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="PlantDesign" type="Node2D" parent="."]
+
+[node name="Plant" parent="PlantDesign" instance=ExtResource( 10 )]
+position = Vector2( 0, -6 )
+
+[node name="Position1" type="Marker2D" parent="PlantDesign"]
+position = Vector2( 0, -6 )
+
+[node name="Position2" type="Marker2D" parent="PlantDesign"]
+position = Vector2( 0, -5 )
+
+[node name="Position3" type="Marker2D" parent="PlantDesign"]
+position = Vector2( 0, -4 )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2( 0, -4 )
+frames = SubResource( 19 )
+animation = "idle"
+
+[node name="Fsm" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Idle" type="Node2D" parent="Fsm"]
+script = ExtResource( 4 )
+
+[node name="Walk" type="Node2D" parent="Fsm"]
+script = ExtResource( 6 )
+
+[node name="Sprint" type="Node2D" parent="Fsm"]
+script = ExtResource( 5 )
+
+[node name="Jump" type="Node2D" parent="Fsm"]
+script = ExtResource( 8 )
+
+[node name="Fall" type="Node2D" parent="Fsm"]
+script = ExtResource( 7 )
+
+[node name="Damage" type="Node2D" parent="Fsm"]
+script = ExtResource( 12 )
+
+[node name="Interact" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interact"]
+visible = false
+polygon = PackedVector2Array( -4, -4, -4, -1, -4, 3, 4, 3, 4, -0.947019, 4, -4 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="JumpStart" type="Marker2D" parent="."]
+position = Vector2( 0, 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array( -4, -4, -4, -1, -4, 3, 4, 3, 4, -0.947019, 4, -4 )

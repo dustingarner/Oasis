@@ -1,0 +1,33 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade6.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade1.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade8.png" type="Texture2D" id=3]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade4.png" type="Texture2D" id=4]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade5.png" type="Texture2D" id=5]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade7.png" type="Texture2D" id=6]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade2.png" type="Texture2D" id=7]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade3.png" type="Texture2D" id=8]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade9.png" type="Texture2D" id=9]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade15.png" type="Texture2D" id=10]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade17.png" type="Texture2D" id=11]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade10.png" type="Texture2D" id=12]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade16.png" type="Texture2D" id=13]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade12.png" type="Texture2D" id=14]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade14.png" type="Texture2D" id=15]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade18.png" type="Texture2D" id=16]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade13.png" type="Texture2D" id=17]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade19.png" type="Texture2D" id=18]
+[ext_resource path="res://Assets/Animated Scenes/Fade/Fade11.png" type="Texture2D" id=19]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "default",
+"speed": 8.92
+} ]
+
+[node name="Fade" type="AnimatedSprite2D"]
+frames = SubResource( 1 )
+centered = false
